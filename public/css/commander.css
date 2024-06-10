@@ -1,0 +1,181 @@
+#Command-form {
+    background-color: var(--footer-bg-color);
+    width: 95%;
+    padding: 5px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+#Command-form button {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 5px;
+    border: var(--footer-border-color) 2px outset;
+    transition: all 0.6s;
+    width: 40%;
+    margin: 0 8px;
+}
+
+#Command-form input {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    width: 20%;
+    outline: none;
+    background: var(--footer-form-input-bg);
+    color: var(--footer-form-input-text);
+    border: 2px solid var(--footer-border-color);
+    border-radius: 5px;
+    transition: all 0.6s;
+}
+
+
+#Command-form button:hover {
+    color: var(--footer-bg-color);
+    background-color: var(--footer-text-color);
+    border: var(--footer-bg-color) 2px outset;
+    transform: translateY(-5px);
+}
+
+
+#menu-command {
+    background-color: var(--main-bg-color);
+    padding: 10px;
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 3px;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+.menu-presentation {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 200px;
+    border: 1px var(--main-text-color) solid;
+    margin: 7px 7px;
+    padding: 10px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-bg-color);
+}
+
+
+
+.menu-presentation img {
+    width: 30%;
+    margin: 10px 0;
+}
+
+
+.menu-presentation>p {
+    width: 75%;
+    text-align: center;
+}
+
+.carte-style {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    margin: 10px 0;
+    background-color: var(--footer-form-bg-color);
+    flex-wrap: nowrap;
+    border: var(--main-border-color) 2px outset;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+.carte-style img {
+    width: 30%;
+}
+
+.carte-style section {
+    width: 70%;
+}
+
+.carte-style ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.carte-style>section li {
+    width: 30%;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.carte-style p {
+    text-align: center;
+}
+
+
+
+.form-submit {
+    width: 95%;
+    background-color: var(--main-bg-color);
+    border: var(--main-border-color) 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 10px;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+
+.form-submit section {
+    width: 50%;
+    text-align: justify;
+}
+
+
+
+.form-submit section table {
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+}
+
+.form-submit section table td {
+    padding: 8px;
+}
+
+
+.form-submit section p {
+    width: 80%;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+
+#submit-button{
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 5px;
+    border: var(--footer-border-color) 2px outset;
+    transition: all 0.6s;
+}
+
+
+#submit-button:hover{
+    color: var(--footer-bg-color);
+    background-color: var(--footer-text-color);
+    border: var(--footer-bg-color) 2px outset;
+    transform: translateY(-5px);
+}

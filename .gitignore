@@ -1,0 +1,64 @@
+/vendor/
+/node_modules/
+
+/public/storage
+/public/hot
+/public/vendor
+/public/mix-manifest.json
+
+/storage/*.key
+/storage/*.log
+/storage/*.cache
+/storage/*.session
+/storage/*.views
+/storage/*.compiled
+/storage/*.debugbar
+/storage/*.phpunit.result.cache
+/storage/logs
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+
+.env
+.env.*
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+npm-debug.log
+yarn-error.log
+.idea
+.vscode
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.phar
+
+# Laravel Mix
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vagrant
+.vagrant
+
+# Laravel Telescope
+telescope.lock
+
+# Laravel Nova
+nova.lock
+
+# Ignorer les fichiers de cache PHPStorm
+/.idea
+
+# Ignorer les fichiers d'extensions locales
+*.local
+*.local.php
+.env.local.php
+.env.local
+.env.testing
+.env.staging
+
+# Ignorer les fichiers de logs
+*.log

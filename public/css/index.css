@@ -1,0 +1,115 @@
+
+/* style pour le menu de navigation dans main */
+.interface-navigation {
+    width: 85%;
+    padding: 10px;
+    background-color: var(--main-content-bg-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-around;
+    gap: 5px;
+    margin-bottom: 10px;
+    border: 3px var(--main-bg-color) solid;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+/* style des bloc contenue dans .interface-navigation */
+.bloc {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--body-bg-color);
+    color: var(--main-text-color);
+    border: 2px outset var(--main-bg-color);
+}
+
+
+/* style des liens dans .bloc contenue dans .interface-navigation */
+.bloc a {
+    text-align: center;
+    text-decoration: none;
+    color: var(--main-text-color);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s;
+}
+
+
+/* style des images dans .bloc */
+.bloc img {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.6s;
+}
+
+
+/* style des image avec hover dans .bloc */
+.bloc:hover img {
+    opacity: 1;
+}
+
+
+/* style des liens avec hover dans .bloc */
+.bloc:hover a {
+    background-color: gold;
+    color: black;
+}
+
+
+/* style spécifique au cradre annonce dans .interface-navigation */
+#annonce {
+    width: 95%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    margin: 15px 0;
+}
+
+/* style pour les section dans main */
+.main-section {
+    padding: 20px;
+    width: 90%;
+    background-color: var(--main-content-bg-color);
+    color: var(--main-text-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+/* style des images dans les section de main */
+.main-section img {
+    border: 2px outset var(--main-border-color);
+    width: 25%;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+/* style pour les p et h2 dans une section de main */
+.main-section p,.main-section h2{
+    width: 80%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+/* style avec hover pour les p et h2 des sections de main */
+.main-section:hover p, .main-section:hover h2{
+    opacity: 1;
+}
+
+
+

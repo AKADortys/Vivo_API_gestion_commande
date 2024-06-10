@@ -1,0 +1,132 @@
+main iframe {
+    width: 100%;
+    height: 350px;
+}
+
+
+#main-coord {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 500px;
+    width: 55%;
+    margin: 10px 2px;
+    background-color: var(--footer-bg-color);
+    border: var(--main-border-color) 2px outset;
+}
+
+
+#main-coord p {
+    width: 30%;
+    text-align: center;
+
+}
+
+
+#main-coord img {
+    width: 33%;
+    height: 40%;
+}
+
+#main-coord a {
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+
+
+#main-hora {
+    width: 40%;
+    margin: 10px 2px;
+    background-color: var(--footer-bg-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: var(--main-border-color) 2px outset;
+}
+
+
+
+#main-hora table {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
+
+
+#main-hora td {
+    padding: 10px;
+}
+
+
+#main-form {
+    width: 60%;
+    background-color: var(--footer-bg-color);
+    padding: 10px 0;
+    border: var(--main-border-color) 2px outset;
+}
+
+
+#main-form form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#main-form label {
+    width: 50%;
+    text-align: center;
+    margin: 5px 0;
+}
+
+
+#main-nom,
+#main-prenom,
+#main-question {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    width: 40%;
+    outline: none;
+    background: var(--footer-form-input-bg);
+    color: var(--footer-form-input-text);
+    border: 2px solid var(--footer-border-color);
+    border-radius: 5px;
+    transition: all 0.6s;
+    margin: 5px 0;
+}
+
+#main-question {
+    width: 95%;
+    height: 100px;
+}
+
+#main-prenom:focus,
+#main-question:focus,
+#main-nom:focus {
+    background: var(--footer-form-input-focus-bg);
+    border: 2px solid var(--footer-form-input-focus-border);
+    border-radius: 10px;
+}
+
+
+#question-submit {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 5px;
+    border: var(--footer-border-color) 2px outset;
+    transition: all 0.6s;
+}
+
+
+#question-submit:hover {
+    color: var(--footer-bg-color);
+    background-color: var(--footer-text-color);
+    border: var(--footer-bg-color) 2px outset;
+    transform: translateY(-5px);
+}

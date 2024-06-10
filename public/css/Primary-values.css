@@ -1,0 +1,34 @@
+
+/* Ici je vais stocker dans des variables css les valeurs que je vais utiliser fréquement et aussi pour facilité la modification et la maintenance du fichier */
+:root {
+    --body-bg-color: rgb(0, 0, 0);
+    --main-content-bg-color: rgba(141, 97, 56, 0.419);
+    --main-bg-color:rgba(0, 0, 0, 0.668);
+    --main-text-color: gold;
+    --main-border-color: gold;
+    --txt-color: #f6eba7;
+    --h1-bg:black;
+    --header-bg-color: rgba(0, 0, 0, 0.136);
+    --nav-bg-color: rgba(0, 0, 0, 0.479);
+    --nav-text-color: #f6eba7;
+    --nav-hover-bg-color: grey;
+    --section-bg-color: rgba(0, 0, 0, 0.744);
+    --section-text-color: gold;
+    --section-img-border-color: gold;
+    --footer-bg-color: rgba(128, 128, 128, 0.597);
+    --footer-border-color: gold;
+    --footer-text-color: gold;
+    --footer-form-bg-color: rgba(0, 0, 0, 0.646);
+    --footer-form-input-bg: #ffffff;
+    --footer-form-input-text: #EDE61F;
+    --footer-form-input-border: #000000;
+    --footer-form-input-focus-bg: #050505;
+    --footer-form-input-focus-border: #EDF500;
+    --social-links-bg: rgba(0, 0, 0, 0.624);
+    --social-links-border: #f6eba7;
+    --social-links-hover-color: #f6eba7;
+    --social-links-visited-color: purple;
+  }
+
+
+

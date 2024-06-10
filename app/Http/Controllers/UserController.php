@@ -1,0 +1,121 @@
+<?php
+
+// app/Http/Controllers/UserController.php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
+class UserController extends Controller
+{
+    // Afficher tous les utilisateurs
+    public function index()
+    {
+        return response()->json(User::all());
+    }
+
+    // Créer un nouvel utilisateur
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'string|max:9',
+            'newsletter' => 'boolean',
+            'password' => 'required|string|min:8',
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'newsletter' => $request->has('newsletter') ? 'on' : 'off',
+            'password' => Hash::make($request->password),
+        ]);
+
+        return response()->json($user, 201);
+    }
+
+    // Afficher un utilisateur spécifique
+    public function show($id)
+    {
+        return response()->json(User::find($id));
+    }
+
+    // Mettre à jour un utilisateur
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'sometimes|required|string|max:255',
+            'email' => 'sometimes|required|string|email|max:255|unique:users,email,' . $id,
+            'phone' => 'sometimes|required|string|max:9',
+            'newsletter' => 'boolean',
+            'password' => 'sometimes|required|string|min:8',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update($request->except('password'));
+
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        return response()->json($user, 200);
+    }
+
+    // Supprimer un utilisateur
+    public function destroy($id)
+    {
+        User::destroy($id);
+        return response()->json(null, 204);
+    }
+
+    // Afficher le formulaire d'inscription
+    public function showRegistrationForm()
+    {
+        return view('register');
+    }
+
+    // Enregistrer un nouvel utilisateur
+    public function register(Request $request)
+    {
+        // dd($request->all());
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        // Optionnel: Connexion automatique de l'utilisateur après l'inscription
+        // Auth::login($user);
+
+        return redirect('/')->with('success', 'Registration successful!');
+    }
+
+    // Valider les données du formulaire
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:12'],
+            'newsletter' => ['string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required', 'string', 'min:8'],
+        ]);
+    }
+
+    // Créer un nouvel utilisateur
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'newsletter' => isset($data['newsletter']) ? 'on' : 'off',
+            'password' => Hash::make($data['password']),
+        ]);
+    }
+}
