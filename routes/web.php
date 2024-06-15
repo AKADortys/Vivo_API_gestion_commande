@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DashBoardController;
 
 // routes/web.php
 Route::get('/', function () {
@@ -28,9 +29,7 @@ Route::prefix('order')->group(function () {
 // Route pour la déconnexion
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth');
+Route::get('/dashboard', [DashBoardController::class, 'dashboard']);
 
 
 
