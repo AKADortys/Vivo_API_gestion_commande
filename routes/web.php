@@ -26,11 +26,12 @@ Route::prefix('order')->group(function () {
 });
 
 
+Route::post('/update-user', [UserController::class, 'update'])->name('update-user');
+
 // Route pour la déconnexion
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashBoardController::class, 'dashboard']);
-
 
 
 

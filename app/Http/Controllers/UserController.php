@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'string|max:9',
+            'phone' => 'string|max:10',
             'newsletter' => 'boolean',
             'password' => 'required|string|min:8',
         ]);
@@ -46,27 +47,44 @@ class UserController extends Controller
     }
 
     // Mettre à jour un utilisateur
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $request->validate([
-            'name' => 'sometimes|required|string|max:255',
-            'email' => 'sometimes|required|string|email|max:255|unique:users,email,' . $id,
-            'phone' => 'sometimes|required|string|max:9',
-            'newsletter' => 'boolean',
-            'password' => 'sometimes|required|string|min:8',
-        ]);
-
-        $user = User::findOrFail($id);
-        $user->update($request->except('password'));
-
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->password);
+        try {
+             $request->validate([
+                'id' => 'required|integer|exists:users,id',
+                'name' => 'sometimes|required|string|max:255',
+                'email' => 'sometimes|required|string|email|max:255|unique:users,email,' . $request->id,
+                'phone' => 'sometimes|required|string|max:10',
+                'newsletter' => 'string|max:4',
+                'password' => 'nullable|string|min:8',
+                'Cpassword' => 'nullable|string|min:8|same:password',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json(['error' => 'Erreur de validation.', 'messages' => $e->errors()], 422);
         }
-        $user->save();
-
-        return response()->json($user, 200);
+    
+        try {
+            $user = User::findOrFail($request->id);
+    
+            // Mettre à jour les champs sauf le mot de passe et la newsletter
+            $user->update($request->except(['password', 'newsletter']));
+    
+            // Mettre à jour le mot de passe s'il est fourni
+            if ($request->filled('password')) {
+                $user->password = Hash::make($request->password);
+            }
+    
+            // Mettre à jour la newsletter
+            $user->newsletter = $request->has('newsletter') ? 'on' : 'off';
+    
+            $user->save();
+    
+            return response()->json($user, 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erreur lors de la mise à jour de l\'utilisateur.'], 500);
+        }
     }
-
+        
     // Supprimer un utilisateur
     public function destroy($id)
     {

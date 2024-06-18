@@ -182,3 +182,25 @@ aside img {
     width: 80%;
     text-decoration: underline yellow;
 }
+
+
+#section-parametres{
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--main-content-bg-color);
+    margin: 0 auto;
+}
+
+#section-parametres>form{
+    width: 100%;
+}
+
+#section-parametres>form>table{
+    width: 100%;
+    text-align: center;
+}
+
+#section-parametres>form>table td{
+    padding: 6px;
+}

@@ -14,6 +14,7 @@
 <link rel="stylesheet" href={{ asset('css/Primary-values.css') }}>
 <link rel="stylesheet" href={{ asset('css/Head_Main_Foot.css') }}>
 <link rel="stylesheet" href={{ asset('css/profile.css') }}>
+<link rel="stylesheet" href={{ asset('css/Sign_In.css') }}>
 @endsection
 
 <aside>
@@ -38,7 +39,7 @@
         <div>
             <h3>Commande de {{ $order->created_at }}</h3>
             <p>Nombres d'articles: {{ $order->total_quantity }}</p>
-            
+
             <h4>Détails des articles :</h4>
             <table>
                 <th>Label</th>
@@ -67,6 +68,69 @@
     <section id="section-parametres" class="hidden-section">
         <!-- Contenu de la section "Paramètres utilisateur" -->
         <h2>Vos informations utilisateur</h2>
+        <form action="{{ route('update-user') }}" method="post">
+            @csrf
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Nom :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" class="Sign_In-form-input" required value="{{auth()->user()->name}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Addresse mail :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="email" name="email" placeholder="exemple@gmail.com" class="Sign_In-form-input" required value="{{auth()->user()->email}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="phone">Téléphone :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="phone" name="phone" placeholder="Numéro belges seulement" class="Sign_In-form-input" required value="{{auth()->user()->phone}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">Mot de passe :</label>
+                    </td>
+                    <td>
+                        <input type="password" name="password" id="password" placeholder="8 caract. min" class="Sign_In-form-input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Cpassword">Confirmer le mot de passe :</label>
+                    </td>
+                    <td>
+                        <input type="password" name="Cpassword" id="Cpassword" class="Sign_In-form-input" placeholder="8 caract. min">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="newsletter">Activation de la newsletter</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="newsletter" id="newsletter" @if(auth()->user()->newsletter) checked @endif>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit">Modifier mes informations</button>
+                    </td>
+                    <td>
+                        <input type="reset" value="Annuler">
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="id" value="{{ auth()->user()->id }}">
+
+        </form>
     </section>
 
     <section id="section-historique" class="hidden-section">
@@ -78,7 +142,7 @@
             <h3>Commande de {{ $order->created_at }}</h3>
             <p>Nombres d'articles: {{ $order->total_quantity }}</p>
             <p>Confirmé: {{ $order->updated_at}}</p>
-            
+
             <h4>Détails des articles :</h4>
             <table>
                 <th>Label</th>
