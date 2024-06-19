@@ -67,7 +67,7 @@ class UserController extends Controller
             $user = User::findOrFail($request->id);
     
             // Mettre à jour les champs sauf le mot de passe et la newsletter
-            $user->update($request->except(['password', 'newsletter']));
+            $user->update($request->except(['password']));
     
             // Mettre à jour le mot de passe s'il est fourni
             if ($request->filled('password')) {
@@ -79,7 +79,7 @@ class UserController extends Controller
     
             $user->save();
     
-            return response()->json($user, 200);
+            return redirect('/dashboard');
         } catch (\Exception $e) {
             return response()->json(['error' => 'Erreur lors de la mise à jour de l\'utilisateur.'], 500);
         }

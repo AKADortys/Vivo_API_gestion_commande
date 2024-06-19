@@ -173,16 +173,29 @@
 </div>
 <section id="day-menu">
     <h2>Plats du jour</h2>
-    <a href="commander.html#menu-command">
-        <table>
-            <tr>
-                <td colspan="2">Designation plat n°--</td>
-            </tr>
-            <tr>
-                <td><img src="Images/food1.jpg" alt="image du plat"></td>
-                <td>00.00 EUR</td>
-            </tr>
-        </table>
+    <a href="{{ route('category.articles', ['userid' => auth()->id(), 'categoryid' => 1]) }}">
+    @foreach($menu as $item)
+    <table>
+        <tr>
+            <td colspan="2">
+                <span>{{$item->label}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                {{$item->content}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{$item->price}}
+            </td>
+            <td>
+                {{$item->available ? 'Disponible' : 'Indisponible' }}
+            </td>
+        </tr>
+    </table>
+    @endforeach
     </a>
 </section>
 <div id="profile-pts-count">

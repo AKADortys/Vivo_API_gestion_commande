@@ -100,13 +100,8 @@ aside img {
 
 
 #day-menu td {
-    padding: 5px 10px;
+    padding: 5px 8px;
     text-align: center;
-}
-
-
-#day-menu table {
-    background-color: var(--footer-bg-color);
 }
 
 
@@ -203,4 +198,20 @@ aside img {
 
 #section-parametres>form>table td{
     padding: 6px;
+}
+
+#day-menu table{
+    width: 250px;
+    height: 250px;
+    max-height: 200px;
+    max-width: 200px;
+    margin: 3px 2px;
+    background-color: var(--footer-bg-color);
+    text-align: center;
+    overflow: hidden;
+}
+
+#day-menu span{
+    color: goldenrod;
+    font-weight: bold;
 }
