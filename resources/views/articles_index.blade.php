@@ -46,6 +46,7 @@
         <p>Comme vous vous en doutiez sûrement, Au P’tit Vivo n’est pas épargné par la crise que nous traversons.</p>
         <p>Elle nous contraint malheureusement à augmenter subjectivement nos tarifs de quelques centimes.</p>
         <p>Une légère hausse qui nous permet de toujours vous satisfaire en continuant de vous proposer des produits frais et de qualités. Bon appétit</p>
+        
     </section>
     <section>
         <h3>Résumé de votre commande</h3>
@@ -86,4 +87,7 @@
     <input type="hidden" value="{{$order->id}}" name="order_id">
     <input type="submit" value="Commander" id="submit-button">
 </form>
+@if(session('error'))
+<p>{{ session('error') }}</p>
+@endif
 @endsection

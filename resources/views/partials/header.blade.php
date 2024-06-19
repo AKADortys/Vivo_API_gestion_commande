@@ -20,7 +20,7 @@
                 <ul class="sousmenu">
                     @auth
                         @foreach($categories as $category)
-                            <li><a href="{{ route('category.articles', ['userid' => auth()->id(), 'categoryid' => $category->id]) }}">{{ $category->title }}</a></li>
+                            <li><a href="{{ route('orders.category.articles', ['userid' => auth()->id(), 'categoryid' => $category->id]) }}">{{ $category->title }}</a></li>
                         @endforeach
                     @else
                         <li><a href="{{ url('/login') }}">Connectez-vous pour commander</a></li>
@@ -29,7 +29,7 @@
             </li>
             <li class="menu"><a href="#">Information</a>
                 <ul class="sousmenu">
-                    <li><a href="nouscontacter.html">Nous contacter</a></li>
+                    <li><a href="{{ url('/contact') }}">Nous contacter</a></li>
                     <li><a href="mentionLegale.html">Mentions légales</a></li>
                 </ul>
             </li>

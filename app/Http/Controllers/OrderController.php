@@ -95,9 +95,13 @@ class OrderController extends Controller
         ]);
 
         $order = Order::findOrFail($validatedData['order_id']);
-        $order->is_confirmed = true;
-        $order->save();
-        return redirect('/')->with('success', 'Order confirmed successfully.');
+        if ($order->total_quantity > 0) {
+            $order->is_confirmed = true;
+            $order->save();
+            return redirect('/')->with('success', 'Order confirmed successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Vous ne pouvez pas confirmer une commande sans articles.');
+        }
     }
     
     

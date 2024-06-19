@@ -21,6 +21,8 @@ body {
     align-items: center;
     align-content: center;
     background-image: url('../Images/bg1.jpg');
+    background-size: cover;
+    background-position: 10%;
 }
 
 
