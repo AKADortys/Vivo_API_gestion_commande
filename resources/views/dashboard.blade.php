@@ -17,7 +17,7 @@
 <link rel="stylesheet" href={{ asset('css/Sign_In.css') }}>
 @endsection
 
-<aside>
+@section('aside')
     <h2>Votre compte</h2>
     <ul>
         <li>Mon panier</li>
@@ -26,7 +26,7 @@
         <li>Cartes fidélité</li>
     </ul>
     <img src="Images/fondecran.png" alt="Logo Vivo">
-</aside>
+@endsection
 @section('content')
 <!-- Ici le contenue de la page -->
 <h1>Au P'tit Vivo</h1>

@@ -6,6 +6,9 @@
 </head>
 <body>
     @include('partials.header')
+    <aside>
+        @yield('aside')
+    </aside>
 
     <main>
         @yield('content')
