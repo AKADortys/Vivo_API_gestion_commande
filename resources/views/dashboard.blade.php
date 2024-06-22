@@ -38,7 +38,7 @@
         @foreach ($orders as $order)
             @if (!$order->is_confirmed)
                 <div>
-                    <h3>Commande de {{ $order->created_at }}</h3>
+                    <h3>Commande de {{ $order->created_at->format('d/m/Y  H:i:s') }}</h3>
                     <p>Nombres d'articles: {{ $order->total_quantity }}</p>
                     <h4>Détails des articles :</h4>
                     <table>
@@ -54,8 +54,8 @@
                                 <td><strong>{{ $article->pivot->label }}</strong></td>
                                 <td>{{ $article->pivot->price }}</td>
                                 <td>{{ $article->pivot->quantity }}</td>
-                                <td>{{ $article->pivot->created_at }}</td>
-                                <td>{{ $article->pivot->updated_at }}</td>
+                                <td>{{ $article->pivot->created_at->format('d/m/Y  H:i:s') }}</td>
+                                <td>{{ $article->pivot->updated_at->format('d/m/Y  H:i:s') }}</td>
                             </tr>
                         @endforeach
                     </table>
@@ -114,9 +114,9 @@
         @foreach ($orders as $order)
             @if ($order->is_confirmed)
                 <div>
-                    <h3>Commande de {{ $order->created_at }}</h3>
+                    <h3>Commande de {{ $order->created_at->format('d/m/Y  H:i:s') }}</h3>
                     <p>Nombres d'articles: {{ $order->total_quantity }}</p>
-                    <p>Confirmé: {{ $order->updated_at }}</p>
+                    <p>Confirmé: {{ $order->updated_at->format('d/m/Y  H:i:s') }}</p>
                     <h4>Détails des articles :</h4>
                     <table>
                         <tr>
@@ -131,8 +131,8 @@
                                 <td><strong>{{ $article->pivot->label }}</strong></td>
                                 <td>{{ $article->pivot->price }}</td>
                                 <td>{{ $article->pivot->quantity }}</td>
-                                <td>{{ $article->pivot->created_at }}</td>
-                                <td>{{ $article->pivot->updated_at }}</td>
+                                <td>{{ $article->pivot->created_at->format('d/m/Y  H:i:s') }}</td>
+                                <td>{{ $article->pivot->updated_at->format('d/m/Y  H:i:s') }}</td>
                             </tr>
                         @endforeach
                     </table>
@@ -167,11 +167,6 @@
         @endforeach
     </a>
 </section>
-
-<div id="profile-pts-count">
-    <h2>Vos points</h2>
-    <span id="fidel-pts">5</span>
-</div>
 
 <div id="profile-promo">
     Bandeau promo

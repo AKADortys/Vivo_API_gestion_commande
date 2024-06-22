@@ -82,7 +82,7 @@ aside img {
 }
 
 #day-menu {
-    width: 50%;
+    width: 80%;
     background-color: var(--section-bg-color);
     border: 2px outset var(--main-border-color);
 }
