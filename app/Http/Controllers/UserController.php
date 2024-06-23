@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,15 +30,20 @@ class UserController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'newsletter' => $request->has('newsletter') ? 'on' : 'off',
-            'password' => Hash::make($request->password),
-        ]);
+        try {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'password' => Hash::make($request->password),
+            ]);
 
-        return response()->json($user, 201);
+            $this->updateNewsletterSubscription($request->email, $request->name, $request->has('newsletter'));
+
+            return response()->json($user, 201);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erreur lors de la création de l\'utilisateur.'], 500);
+        }
     }
 
     // Afficher un utilisateur spécifique
@@ -50,7 +56,7 @@ class UserController extends Controller
     public function update(Request $request)
     {
         try {
-             $request->validate([
+            $request->validate([
                 'id' => 'required|integer|exists:users,id',
                 'name' => 'sometimes|required|string|max:255',
                 'email' => 'sometimes|required|string|email|max:255|unique:users,email,' . $request->id,
@@ -62,29 +68,31 @@ class UserController extends Controller
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(['error' => 'Erreur de validation.', 'messages' => $e->errors()], 422);
         }
-    
+
         try {
             $user = User::findOrFail($request->id);
-    
-            // Mettre à jour les champs sauf le mot de passe et la newsletter
-            $user->update($request->except(['password']));
-    
+
+            // Mettre à jour les champs sauf le mot de passe
+            $updateData = $request->except(['password', 'id', 'newsletter']);
+            $user->update($updateData);
+
             // Mettre à jour le mot de passe s'il est fourni
             if ($request->filled('password')) {
                 $user->password = Hash::make($request->password);
             }
-    
-            // Mettre à jour la newsletter
-            $user->newsletter = $request->has('newsletter') ? 'on' : 'off';
-    
+
+            // Gérer l'abonnement à la newsletter
+            $this->updateNewsletterSubscription($request->email, $request->name, $request->filled('newsletter'));
+
             $user->save();
-    
+
             return redirect('/dashboard');
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Erreur lors de la mise à jour de l\'utilisateur.'], 500);
+            return response()->json(['error' => 'Erreur lors de la mise à jour de l\'utilisateur.', 'message' => $e->getMessage()], 500);
         }
     }
-        
+
+
     // Supprimer un utilisateur
     public function destroy($id)
     {
@@ -101,7 +109,6 @@ class UserController extends Controller
     // Enregistrer un nouvel utilisateur
     public function register(Request $request)
     {
-        // dd($request->all());
         $this->validator($request->all())->validate();
 
         $user = $this->create($request->all());
@@ -128,12 +135,25 @@ class UserController extends Controller
     // Créer un nouvel utilisateur
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'newsletter' => isset($data['newsletter']) ? 'on' : 'off',
             'password' => Hash::make($data['password']),
         ]);
+
+        $this->updateNewsletterSubscription($data['email'], $data['name'], isset($data['newsletter']));
+
+        return $user;
+    }
+
+    // Mettre à jour l'abonnement à la newsletter
+    private function updateNewsletterSubscription($email, $name, $subscribe)
+    {
+        $newsletter = Newsletter::firstOrNew(['email' => $email]);
+        $newsletter->name = $name;
+        $newsletter->active = $subscribe;
+        $newsletter->save();
     }
 }

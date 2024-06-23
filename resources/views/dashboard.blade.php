@@ -97,8 +97,7 @@
                 </tr>
                 <tr>
                     <td><label for="newsletter">Activation de la newsletter</label></td>
-                    <td><input type="checkbox" name="newsletter" id="newsletter" @if(auth()->user()->newsletter) checked @endif></td>
-                </tr>
+                    <td><input type="checkbox" name="newsletter" id="newsletter" @if(isset($news) && $news->active) checked @endif></td>
                 <tr>
                     <td><button type="submit">Modifier mes informations</button></td>
                     <td><input type="reset" value="Annuler"></td>
