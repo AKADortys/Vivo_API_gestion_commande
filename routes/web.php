@@ -9,6 +9,7 @@ use App\Http\Controllers\DashBoardController;
 // Routes pour les pages statiques
 Route::view('/', 'home');
 Route::view('/contact', 'info');
+Route::view('/mention-legale', 'mention-legale');
 
 // Routes pour l'authentification
 Route::middleware('guest')->group(function () {

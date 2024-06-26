@@ -40,28 +40,6 @@
                 <img src="{{ asset('Images/6386842.png') }}" alt="E-mail img">
                 <p>noemiiea@icloud.com</p>
         </div>
-        <!-- inscription à la newsletter -->
-        <form action="Script/newsletter-create.js" method="post">
-            <p>Inscription à la Newsletter :</p>
-            <table>
-                <tr>
-                    <td><label for="nom">Nom </label></td>
-                    <td><input type="text" class="footer-form-input" id="nom" name="nom"></td>
-                </tr>
-                <tr>
-                    <td><label for="prenom">Prénom </label></td>
-                    <td><input type="text" class="footer-form-input" id="prenom" name="prenom"></td>
-                </tr>
-                <tr>
-                    <td><label for="mail">Mail </label></td>
-                    <td><input type="text" class="footer-form-input" id="mail" name="mail"></td>
-                </tr>
-                <tr>
-                    <td><input class="news_letter_button" type="submit" value="Valider"></td>
-                    <td><input class="news_letter_button" type="reset" value="Annuler"></td>
-                </tr>
-            </table>
-        </form>
         <!-- div regroupant les liens vers instagram et Facebook -->
         <div id="reseaux">
             <h2>Nos réseaux :</h2>

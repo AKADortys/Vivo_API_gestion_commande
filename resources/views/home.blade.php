@@ -40,7 +40,7 @@
         @endif
     </div>
     <div class="bloc"><img src="Images/fondecran2.jpg" alt="produit traiteur"></div>
-    <div class="bloc"><a href="nouscontacter.html">Nous contacter</a></div>
+    <div class="bloc"><a href="{{ url('/mention-legale') }}">Mentions légales</a></div>
 </div>
 <!-- Cette section contiendras les historique de l'entreprise, les message éventuels et images du personnel/magason etc -->
 <section class="main-section">

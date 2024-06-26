@@ -30,7 +30,7 @@
             <li class="menu"><a href="#">Information</a>
                 <ul class="sousmenu">
                     <li><a href="{{ url('/contact') }}">Nous contacter</a></li>
-                    <li><a href="mentionLegale.html">Mentions légales</a></li>
+                    <li><a href="{{ url('/mention-legale') }}">Mentions légales</a></li>
                 </ul>
             </li>
             <li class="menu"><a href="{{ url('/') }}">Accueil</a></li>
