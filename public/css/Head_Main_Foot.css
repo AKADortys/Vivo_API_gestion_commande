@@ -1,0 +1,420 @@
+/* Importation d'une police pour le h1 */
+@import url('https://fonts.googleapis.com/css2?family=Love+Light&display=swap');
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Cette section concerne le main et body et autres éléments html fréquement utilisés
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* initialisation du fichier avec le body on en retire les marges et on définis une police par défaut*/
+body {
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--body-bg-color);
+    /* width: 800px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-image: url('../Images/bg1.jpg');
+    background-size: cover;
+    background-position: 10%;
+}
+
+
+/* j'applique ici les changement sur tout les h1 des pages */
+h1 {
+    color: var(--main-text-color);
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'Love Light', cursive;
+    background: var(--h1-bg);
+    width: 95%;
+    margin: 15px auto;
+    padding: 10px;
+    font-size: 100px;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+/* J'applique les styles sur tout les h2 des pages*/
+h2 {
+    color: var(--txt-color);
+    text-align: center;
+    text-decoration: underline var(--txt-color);
+    font-family: serif;
+    width: 100%;
+}
+
+
+h3 {
+    color: var(--txt-color);
+    text-align: center;
+    font-family: serif;
+    width: 100%;
+}
+
+
+/* j'applique ici la position et le comportement de main avec ses éléments enfants */
+main {
+    width: 80%;
+    background-color: var(--main-bg-color);
+    border: var(--main-border-color) 3px outset;
+    color: var(--main-text-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 75px;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Cette section est dédié au header et au menu de navigation
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* je position le header en fixed à 0px du haut et avec l'index prioritaire */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+
+/*On change la largeur du block nav et je lui attribut une couleur de fond  */
+nav {
+    width: 100%;
+    background-color: var(--nav-bg-color);
+}
+
+
+/* Une solution trouvé sur le net, En résumé, ce code est une technique courante pour assurer que les éléments à l'intérieur de la balise nav,
+ n'affectent pas indûment la mise en page en laissant des éléments flotter à l'extérieur de leur conteneur parent. */
+nav>ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+/* Ici, je retire juste les marge interne et je définis des marges externe de 5px à l'horizontale*/
+nav>ul {
+    padding: 0px;
+    margin: 0 8px;
+}
+
+
+/* Je definis le temps de la transition du hover, je retire également les puces de la liste ordonnée */
+nav li {
+    list-style-type: none;
+    transition: background-color 0.6s;
+}
+
+
+nav>ul>li>img{
+    position: relative;
+    float: left;
+}
+
+
+/* Je décide ici de faire flotter les <li> (uniquement ceux spécifié) sur la gauche et leurs donne une position relative à leurs parent */
+.menu{
+    float: right;
+    position: relative;
+}
+
+
+/* Cacher initialement les éléments avec la classe .sousmenu */
+.sousmenu {
+    display: none;
+}
+
+
+/* Styles pour les liens dans la navigation */
+nav a, nav form {
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+/* Styles pour les liens directs enfants des éléments li dans la navigation */
+nav>ul>li>a {
+    padding: 20px 30px;
+    color: var(--nav-text-color);
+}
+
+
+/* Lorsque survolé, afficher le sous-menu à une position definis le z-index sert à éviter un mauvais comportement avec le float */
+nav li:hover .sousmenu {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 0px;
+    z-index: 1000;
+}
+
+
+/* Styles pour les éléments li dans le sous-menu, une bordure style solid couleur jaune et taille de 1px */
+.sousmenu li {
+    border-bottom: 1px solid var(--nav-text-color);
+}
+
+
+/* Styles pour les liens dans le sous-menu */
+.sousmenu li a {
+    padding: 15px 30px;
+    font-size: 13px;
+    color: var(--nav-text-color);
+    width: 270px;
+}
+
+
+/* Lorsque le menu est survolé, changer la couleur de fond */
+.menu:hover {
+    background-color: var(--nav-hover-bg-color);
+}
+
+
+/* Styles pour le sous-menu du menu survolé */
+.menu .sousmenu {
+    background-color: var(--nav-hover-bg-color);
+    color: var(--nav-text-color);
+}
+
+
+/* Styles pour le logoVivo */
+#logoVivo {
+    height: 50px;
+    width: 50px;
+}
+
+
+/* Styles pour le texte de la liste de navigation */
+#nav-list-txt {
+    color: var(--main-text-color);
+    top: 21px;
+    right: 15px;
+    font-size: smaller;
+    float: right;
+}
+
+#form-logout{
+    color: var(--nav-text-color);
+    display: inline-block;
+    margin: 0;
+}
+
+#form-logout>button{
+    padding: 20px 30px;
+    color: var(--nav-text-color);
+    border:none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 15px;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------
+Cette section concerne le footer
+------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* Ici je définis les style pour le footer avec une image de fond et je dispose les éléments au centre de du footer grace au flex  */
+footer {
+    width: 100%;
+    background-color: var(--footer-bg-color);
+    border-top: var(--footer-border-color) outset 3px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-position: 50%;
+    margin-bottom: 0;
+}
+
+
+
+/* Styles pour le tableau horaires dans le footer */
+#horaires {
+    width: 20%;
+    background-color: var(--footer-form-bg-color);
+    color: var(--footer-text-color);
+    font-size: small;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+    border: var(--footer-border-color) outset 2px;
+}
+
+
+
+/* style pour les td de #horaires*/
+#horaires td {
+    padding: 5px;
+}
+
+
+
+/* Je modifie les style du div coordonnées du footer  */
+#coordon {
+    color: var(--footer-text-color);
+    width: 25%;
+    list-style: none;
+    border: 2px var(--footer-border-color) outset;
+    background-color: var(--footer-form-bg-color);
+    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+
+/* Ici je modifie la taille des images contenue dans la liste du footer */
+#coordon img {
+    width: 15%;
+    height: 15%;
+}
+
+
+
+/* Styles pour les éléments li de la liste du footer */
+#coordon p {
+    width: 80%;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Styles pour les liens contenue dans les éléments p contenue dans #coordon */
+#coordon>p>a {
+    text-decoration: none;
+    color: var(--footer-text-color);
+    transition: all 0.5s;
+}
+
+
+
+/* Styles pour les liens contenue dans les éléments p avec hover contenue dans #coordon */
+#coordon>p>a:hover {
+    color: var(--txt-color);
+}
+
+
+
+/* Styles pour les liens contenue dans les éléments p avec visited contenue dans #coordon */
+#coordon>p>a:visited {
+    color: var(--social-links-visited-color);
+}
+
+
+/* Styles pour le formaulaire newsletter */
+footer>form {
+    width: 25%;
+    background-color: var(--footer-form-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: var(--footer-text-color);
+    margin: 15px;
+    border: 2px var(--footer-border-color) outset;
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+/* Style pour le tableau contenue dans le formulaire dans le footer */
+footer>form>table {
+    width: 90%;
+    text-align: center;
+    border-spacing: 10px;
+}
+
+
+/* style des input type texte du formulaire dans le footer */
+.footer-form-input {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    width: 80%;
+    outline: none;
+    background: var(--footer-form-input-bg);
+    color: var(--footer-form-input-text);
+    border: 2px solid var(--footer-border-color);
+    border-radius: 5px;
+    transition: all 0.6s;
+}
+
+
+/* style des input type texte avec focus du formulaire dans le footer */
+.footer-form-input:focus {
+    background: var(--footer-form-input-focus-bg);
+    border: 2px solid var(--footer-form-input-focus-border);
+    border-radius: 10px;
+}
+
+.news_letter_button {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 5px;
+    border: var(--footer-border-color) 2px outset;
+    transition: all 0.6s;
+}
+
+
+.news_letter_button:hover {
+    color: var(--footer-bg-color);
+    background-color: var(--footer-text-color);
+    border: var(--footer-bg-color) 2px outset;
+    transform: translateY(-5px);
+}
+
+/* Styles pour le div du footer qui contient les liens vers les réseaux */
+#reseaux {
+    border: 2px var(--footer-border-color) outset;
+    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    background-color: var(--footer-form-bg-color);
+    box-shadow: 5px 5px 5px 0px rgba(4, 0, 0, 1);
+}
+
+
+/* Styles pour les liens contenue dans #reseau */
+#reseaux a {
+    margin: 5px 10px;
+    transition: transform 0.8s;
+}
+
+
+
+#reseaux a:hover{
+    transform: translateY(-10px);
+}
+
+/*Styles pour toutes les image contenues dans #reseaux */
+#reseaux img {
+    width: 100%;
+    height: 100px;
+}
+
+.footer-valid-w3c {
+    /* width: 50%; */
+    text-align: center;
+}

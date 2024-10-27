@@ -1,0 +1,243 @@
+body{
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--body-bg-color);
+    /* width: 800px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    /* background-image: url(../Images/bg1.jpg); */
+    align-content: center;
+}
+aside {
+    width: 15%;
+    margin-top: 75px;
+    background-color: rgba(128, 128, 128, 0.569);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+aside ul {
+    padding: 0;
+    text-align: center;
+}
+
+aside li {
+    margin: 0;
+    color: var(--main-text-color);
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 1px black solid;
+    transition: background-color 0.8s, transform 0.5s;
+}
+
+
+aside li:hover {
+    background-color: black;
+    transform: translateX(6px);
+}
+
+
+
+aside img {
+    width: 80%;
+    margin: 10px 10%;
+}
+
+
+.hidden-section {
+    display: none;
+}
+
+.visible-section {
+    display: block;
+}
+
+
+#section-panier {
+    background-color: var(--main-bg-color);
+    padding: 5px 10px;
+}
+
+#section-panier table {
+    text-align: center;
+    width: 100%;
+}
+
+
+#profile-interf-cadre {
+    width: 85%;
+    margin: 10px 0;
+    padding: 15px;
+    text-align: center;
+}
+
+#day-menu img {
+    width: 50px;
+    height: 50px;
+}
+
+#day-menu {
+    width: 80%;
+    background-color: var(--section-bg-color);
+    border: 2px outset var(--main-border-color);
+}
+
+
+#day-menu a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+
+#day-menu td {
+    padding: 5px 8px;
+    text-align: center;
+}
+
+
+#profile-pts-count {
+    margin: 0 15px;
+    width: 15%;
+    background-color: var(--body-bg-color);
+    text-align: center;
+    padding: 10px;
+}
+
+#fidel-pts {
+    font-size: xx-large;
+}
+
+
+
+#profile-promo {
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--body-bg-color);
+    margin: 10px 0;
+}
+
+
+#section-historique>div{
+    background-color: rgba(128, 128, 128, 0.505);
+    width: 95%;
+    min-height: 150px;
+    height: 150px;
+    max-height: 500px;
+    border: 2px outset var(--main-border-color);
+    overflow: hidden;
+    padding: 6px;
+    border-radius: 10px;
+    margin: 8px 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: center;
+    transition: all 0.6s;
+}
+
+#section-historique>div:hover{
+    max-height: none;
+    height: 450px;
+    border-radius: 0;
+    border: 2px inset white;
+    overflow: scroll;
+}
+
+#section-historique>div:hover table{
+    opacity: 1;
+}
+
+#section-historique>div table{
+    opacity: 0;
+    transition: all 0.6s;
+}
+
+
+#section-historique p {
+    width: 60%;
+    color: aliceblue;
+    padding: 10px 0;
+    margin: 0;
+    background-color: var(--main-bg-color);
+}
+#section-historique{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 8px;
+    background-color: var(--main-bg-color);
+}
+
+#section-historique>div>table{
+    width: 100%;
+}
+
+#section-historique>div>table td{
+    color: yellow;
+    padding: 7px 5px;
+    text-align: center;
+    background-color: var(--main-bg-color);
+}
+
+#section-historique>div>table th{
+    color: var(--main-text-color);
+}
+
+#section-historique>div>h4{
+    width: 80%;
+    text-decoration: underline yellow;
+}
+
+
+#section-parametres{
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--main-content-bg-color);
+    margin: 0 auto;
+}
+
+#section-parametres>form{
+    width: 100%;
+}
+
+#section-parametres>form>table{
+    width: 100%;
+    text-align: center;
+}
+
+#section-parametres>form>table td{
+    padding: 6px;
+}
+
+#day-menu table{
+    width: 250px;
+    height: 250px;
+    max-height: 200px;
+    max-width: 200px;
+    margin: 3px 2px;
+    background-color: var(--footer-bg-color);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#day-menu span{
+    color: goldenrod;
+    font-weight: bold;
+}
